@@ -50,7 +50,6 @@ formRegist.addEventListener('submit', function (event) {
     pindah.innerText = "Register";
   }, 10)
 
-
   event.preventDefault();
 });
 
@@ -62,6 +61,63 @@ document.getElementById("Close").addEventListener('click', function () {
 
 })
 
+const Notif = (inputId,NotifId,nSisa,n) => {
+  document.getElementById(NotifId).style.visibility = "visible";
+  const syarat_n_char = n;
+  const actual = document.getElementById(inputId)
+  const Notif = document.getElementById(NotifId);
+  const sisaNotif = document.getElementById(nSisa);
+  Notif.style.visibility = "visible";
+  const n_actual = actual.value.length;
+  const sisa = syarat_n_char - n_actual;
+  sisaNotif.innerText = sisa;
+
+  if (sisa === 0) {
+    sisaNotif.style.color = "black";
+  } else {
+    sisaNotif.style.color = "red"
+  }
+}
+
+const actual = document.getElementById('pinInputRegist')
+actual.addEventListener('input',function(){
+  Notif("pinInputRegist",'NotifNIK','Sisa',10);
+})
+
+
+const actual2 = document.getElementById('pinInputRegist2')
+actual2.addEventListener('input',function(){
+  Notif("pinInputRegist2",'NotifPIN','Sisa2',4);
+})
+
+document.getElementById('pinInputRegist').addEventListener('focus', function () {
+  document.getElementById("NotifNIK").style.visibility ="visible";
+})
+
+document.getElementById('pinInputRegist2').addEventListener('focus', function () {
+  document.getElementById("NotifPIN").style.visibility ="visible";
+})
+
+
+document.getElementById('pinInputRegist').addEventListener('blur', function () {
+  document.getElementById("NotifNIK").style.visibility ="hidden";
+})
+
+document.getElementById('pinInputRegist2').addEventListener('blur', function () {
+  document.getElementById("NotifPIN").style.visibility ="hidden";
+})
+
+
+document.getElementById("RegistForm").addEventListener('input',function(){
+  const actual = document.getElementById('pinInputRegist');
+  const actual2 = document.getElementById('pinInputRegist2');
+
+  if(actual.value.length===10 && actual2.value.length===4){
+    document.getElementById("regist").removeAttribute("disabled")
+  }else{
+    document.getElementById("regist").setAttribute("disabled","")
+  }
+})
 
 const form = document.getElementById('pinForm');
 form.addEventListener('submit', function (event) {
@@ -84,7 +140,7 @@ form.addEventListener('submit', function (event) {
   console.log(pin2);
 
 
-  if (pin !== correctPin && pin !== ayah1 ) {
+  if (pin !== correctPin && pin !== ayah1) {
     event.preventDefault(); // Prevent form submission
     errorMessage.textContent = "KODE NIK Tidak Terdaftar. Silakan coba lagi.";
   } else {
