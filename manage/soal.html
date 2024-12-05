@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="style/book.png" type="image/png">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>SIMULASI UJIAN</title>
+</head>
+<style>
+    
+</style>
+<script type="module" src="js/manage.js"></script>
+
+<body>
+    <div id="header">
+        <div>
+            <h2>UJIAN SEDANG BERLANGSUNG</h2>
+        </div>
+        <div style="display: grid; grid-template-columns : 25% 25% 25% 25%; gap:2px">
+            <div>
+                <center>
+                    <h5>Jumlah Soal</h5>
+                    <h3 id="TotalAsk"></h3>
+                </center>
+            </div>
+            <div>
+                <center>
+                    <h5>Soal Tersisa</h5>
+                    <h3 id="TotalAskTersisa"></h3>
+                </center>
+            </div>
+            <div>
+                <center>
+                    <h6>Sudah Di Isi</h6>
+                    <h3 id="FillAsk"></h3>
+                </center>
+            </div>
+            <div>
+                <center>
+                    <h6>Tekan Tombol Jika Selesai</h6>
+                    <form action="" method="POST">
+                        <button type="submit" name="Finish" id="Done">SELESAI</button>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <div id="RuangNo">
+        <div id="main">
+            <div align="right" id="timer" style="margin-bottom: 20px; font-size: 30px;">00:00:00</div>
+            <div id="insightSoal">
+                <div style="height : 70px" id="Soal"></div>
+                <div>
+                    <form id="FormAns" action="">
+                        <div>
+                            <ol type="A">
+                                <li id="A"><input id="ansA" name="soal" type="radio" value="A"><label id="optionA"
+                                        to="ansA"></label>
+                                </li>
+                                <li id="B"><input id="ansB" name="soal" type="radio" value="B"><label
+                                        id="optionB"></label>
+                                </li>
+                                <li id="C"><input id="ansC" name="soal" type="radio" value="C"><label
+                                        id="optionC"></label>
+                                </li>
+                                <li id="D"><input id="ansD" name="soal" type="radio" value="D"><label
+                                        id="optionD"></label>
+                                </li>
+                            </ol>
+                        </div>
+                        <button style="margin-top:10px" type="submit">SIMPAN</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div style="overflow-y: scroll ; height: 400px; margin: 0px; ">
+
+            <div id="KumpulanNoSoal">
+            </div>
+        </div>
+    </div>
+
+    <!--Popupp-->
+    <div id="OverLay">
+        <div id="popupcontent">
+            <h2>ERROR</h2>
+            <p>Pasikan Kamu Sudah Mengisi Pilihan</p>
+            <button id="ClosePoPup">OKE</button>
+        </div>
+    </div>
+
+    <!--Popup Selesai-->
+    <div id="OverLay2">
+        <div id="popupcontent2">
+            <h2>PERINGATAN</h2>
+            <p>Apakah Kamu Yakin Menyelesaikan Ujian ? Setiap Pilihan Akan Tidak Berlaku Kembali.</p>
+            <div id="optionButtons">
+                <button id="ClosePoPupBatal">Batal</button>
+                <button id="Selesai">OKE</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

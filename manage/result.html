@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="style/book.png" type="image/png">
+    <title>Hasil Akhir</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>
+            UJIAN SELESAI
+        </h1>
+        <div>
+            <h1>
+                Total Score <br> <span id="Score"></span>
+            </h1>
+        </div>
+        <form id="Back">
+            <button class="backButton">KEMBALI</button>
+        </form>
+    </div>
+
+</body>
+<script type="module">
+    const PIN = localStorage.getItem('PIN');
+    const NIK = localStorage.getItem('NIK');
+    if (PIN === null || NIK === null) {
+        location.href = "../index.html"
+    } else {
+        let total = 0;
+        const nilai = JSON.parse(localStorage.getItem("score"))
+        nilai.map((item) => { total += item });
+        document.getElementById('Score').innerText = total;
+
+        const back = document.getElementById("Back");
+        back.addEventListener('submit',function(){
+            localStorage.clear();
+            location.href ="../index.html";
+        })
+    }
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="style/book.png" type="image/png">
+    <title>CheckPoint</title>
+</head>
+<script >
+    const PIN = localStorage.getItem('PIN');
+    const NIK = localStorage.getItem('NIK');
+    if (PIN===null||NIK===null){
+        location.href="../index.html"
+    }
+</script>
+<body>
+    <CENTER>
+        <h1>
+            AKSES DITERIMA
+        </h1>
+    </CENTER>
+    <center>
+        <a href="soal.html">Klik Untuk Mulai Ujian</a>
+    </center>
+</body>
+
+</html>

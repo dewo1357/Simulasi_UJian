@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="./manage/style/book.png" type="image/png">
+
+  <title>Simulasi Ujian</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fffefe;
+      width : 300px;
+      margin: 8% auto;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+
+    #OverLay{
+      position: fixed;
+      top: 0;
+      background-color: #02020228;
+      height: 100%;
+      width : 100%;
+      display: none;
+      transition: top 0ms ease-in-out 300ms;
+    }
+
+    #popcontent{
+      background-color: rgb(255, 255, 255);
+      width : 25%;
+      text-align: center;
+      padding : 10px;
+      border-radius: 10px;
+      box-shadow: 0.2px 0.2px 0.1px 0.1px black;
+      position: absolute;
+      top : 35%;
+      left: 37%;
+      height: 200px;
+      align-content: center;
+      opacity: 0;
+      transform: translateY(-50px); /* Awalnya sedikit naik ke atas */
+      transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi smooth */
+    }
+
+   #popcontent.show{
+    opacity: 1;
+    transform: translateY(0);
+   }
+
+   button{
+    cursor: pointer;
+   }
+
+    #popcontent button{
+      width : 140px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: 20px;
+      border: 0px solid;
+      cursor: pointer;
+    }
+
+    #popcontent button:hover{
+      background-color: #022922;
+      color: #fff;
+      transition: 500ms;
+    }
+
+    @media (max-width: 768px){
+      #popcontent{
+        width : 60%;
+        left : 18%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 style="font-size: 50px;">SIMULASI UJIAN PPPK</h1>
+  </div>
+  <div class="container" >
+    <div id="Login">
+      <h1 >Enter Your PIN</h2>
+        <form id="pinForm" action="">
+          <input style="height: 30px; width: 200px" type="input" id="pinInput" name="pin" placeholder="Masukan No NIK" required>
+          <br><br>
+          <input style="height: 30px; width: 200px" type="input" id="pinInput2" name="pin2" placeholder="Masukan PIN" required>
+          <br><br>
+          <button style="height: 38px; width: 210px"type="submit">Submit</button>
+        </form>
+        <p id="errorMessage" class="error"></p>
+    </div>
+
+    <div id="Regist"hidden>
+      <h1>Register</h2>
+      <form id="RegistForm"action="">
+        <input style="height: 30px; width: 200px" type="input" id="pinInputRegist" name="pin" placeholder="Masukan No NIK" required>
+          <br><br>
+          <input style="height: 30px; width: 200px" type="input" id="pinInputRegist2" name="pin2" placeholder="Masukan PIN" required>
+          <br><br>
+          <button style="height: 38px; width: 210px"type="submit" id="regist">Register</button>
+      </form>
+    </div> 
+    <br> 
+    <div>
+      <button id="PindahLogin">Register</button>
+      <input id="check" type="radio" hidden>
+    </div>
+  </div>
+
+  <!--popup-->
+  <div id="OverLay">
+    <div id="popcontent">
+      <h2>BERHASIL</h2>
+      <p>Silahkan Sign In Melalui NIK & PIN yang telah Kamu Daftar</p>
+      <button id="Close">OKE</button>
+    </div>
+  </div>
+  
+  <script src="manage/js/validation.js">
+    
+  </script>
+</body>
+</html>
